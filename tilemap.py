@@ -1,3 +1,62 @@
+class Tile:
+    def __init__(self, assetname, overlay=None):
+        self.assetname = assetname
+        self.overlay = overlay
+
+    def draw(self, im, assets, x, y):
+        asset = assets[self.assetname]
+        im.paste(asset, (x, y), asset)
+
+    def draw_overlay(self, im, assets, x, y):
+        if self.overlay:
+            self.overlay.draw(im, assets, x, y)
+
+
+class HideTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_hide', overlay=overlay)
+
+
+class HideTriggerTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_hide_trigger', overlay=overlay)
+
+
+class NormalTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_normal', overlay=overlay)
+
+
+class PortalEntranceTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_portal_entrance', overlay=overlay)
+
+
+class PortalExitTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_portal_exit', overlay=overlay)
+
+
+class PortalTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_portal', overlay=overlay)
+
+
+class SpawnTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_spawn', overlay=overlay)
+
+
+class SpawnTriggerTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_spawn_trigger', overlay=overlay)
+
+
+class StartTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_start', overlay=overlay)
+
+
 class TileMap:
     def __init__(self):
         self._tiles = {}
@@ -17,13 +76,22 @@ class TileMap:
 
         return min_q, min_r, max_q, max_r
 
-    def draw(self, im, tileset, tile_w, tile_h, off_odd):
+    def draw(self, im, assets, tile_w, tile_h, off_odd, overlay=True):
         min_q, min_r, _, _ = self.bounds
-        for r, q in sorted(self._tiles.keys()):
-            tile = tileset[self._tiles[(r, q)]]
+
+        # Sort to ensure we draw from back-to-front
+        keys = sorted(self._tiles.keys())
+        for r, q in keys:
             x = (q - min_q) * tile_w + (off_odd if r & 1 else 0)
             y = (r - min_r) * tile_h
-            im.paste(tile, (x, y), tile)
+            self._tiles[(r, q)].draw(im, assets, x, y)
+
+        # Draw overlay after all tiles have been drawn
+        if overlay:
+            for r, q in keys:
+                x = (q - min_q) * tile_w + (off_odd if r & 1 else 0)
+                y = (r - min_r) * tile_h
+                self._tiles[(r, q)].draw_overlay(im, assets, x, y)
 
     def set(self, q, r, tile):
         self._tiles[(r, q)] = tile

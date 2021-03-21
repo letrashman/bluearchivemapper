@@ -1,25 +1,40 @@
-def get_condition_with_type(event, type_):
-    try:
-        return next(
-            condition
-            for condition
-            in event['HexaConditions']
-            if type_ in condition['$type']
-        )
-    except StopIteration:
-        raise KeyError
+from overlay import EnemyInfo
+from tilemap import NormalTile, StartTile, PortalTile, PortalEntranceTile, PortalExitTile, HideTriggerTile, HideTile, \
+    SpawnTriggerTile, SpawnTile
 
 
 def get_command_with_type(event, type_):
     try:
-        return next(
-            command
-            for command
-            in event['HexaCommands']
-            if type_ in command['$type']
-        )
+        return next(command for command in event['HexaCommands'] if type_ in command['$type'])
     except StopIteration:
         raise KeyError
+
+
+def get_condition_with_type(event, type_):
+    try:
+        return next(condition for condition in event['HexaConditions'] if type_ in condition['$type'])
+    except StopIteration:
+        raise KeyError
+
+
+def get_enemy_info(map, data):
+    for unit in map['hexaUnitList']:
+        campaign_unit = data.campaign_units[unit['Id']]
+        character = data.characters[campaign_unit['PrefabName']]
+        location = unit['Location']['x'], unit['Location']['y'], unit['Location']['z']
+        yield location, EnemyInfo(
+            character['BulletType'],
+            character['ArmorType'],
+            campaign_unit['AIMoveType'],
+            campaign_unit['Grade'],
+            campaign_unit['IsBoss']
+        )
+
+
+def get_strategies(map, data):
+    for hexa_strategy in map['hexaStrageyList']:
+        location = (hexa_strategy['Location']['x'], hexa_strategy['Location']['y'], hexa_strategy['Location']['z'])
+        yield location, data.campaign_strategy_objects[hexa_strategy['Id']]
 
 
 def get_tile_hide_events(map):
@@ -48,33 +63,32 @@ def get_tile_spawn_events(map):
             yield trigger, (spawn['x'], spawn['y'], spawn['z'])
 
 
-def get_tile_types(map, campaign_strategy_objects):
-    tile_types = {}
+def get_tiles(map, data):
+    enemy_info = dict(get_enemy_info(map, data))
+    strategies = dict(get_strategies(map, data))
+    for tile in map['hexaTileList']:
+        location = (tile['Location']['x'], tile['Location']['y'], tile['Location']['z'])
+        yield location, NormalTile(overlay=enemy_info.get(location))
 
-    # Determine tile types from hexaStrageyList
-    for hexa_strategy in map['hexaStrageyList']:
-        strategy_object_type = campaign_strategy_objects[hexa_strategy['Id']]['StrategyObjectType']
         try:
-            # TODO: separate function for portals
-            tile_type = {
-                'Start': 'start',
-                'Portal': 'portal',
-                'PortalOneWayEnterance': 'entrance',
-                'PortalOneWayExit': 'exit'
-            }[strategy_object_type]
+            strategy = strategies[location]
         except KeyError:
             continue
 
-        location = hexa_strategy['Location']
-        tile_types[(location['x'], location['y'], location['z'])] = tile_type
+        strategy_type = strategy['StrategyObjectType']
+        if strategy_type == 'Start':
+            yield location, StartTile()
+        elif strategy_type == 'Portal':
+            yield location, PortalTile()
+        elif strategy_type == 'PortalOneWayEnterance':
+            yield location, PortalEntranceTile()
+        elif strategy_type == 'PortalOneWayExit':
+            yield location, PortalExitTile()
 
-    # Determine tile types from events
     for trigger, hide in get_tile_hide_events(map):
-        tile_types[trigger] = 'hidetrigger'
-        tile_types[hide] = 'hide'
+        yield trigger, HideTriggerTile()
+        yield hide, HideTile(overlay=enemy_info.get(hide))
 
     for trigger, spawn in get_tile_spawn_events(map):
-        tile_types[trigger] = 'spawntrigger'
-        tile_types[spawn] = 'spawn'
-
-    return tile_types
+        yield trigger, SpawnTriggerTile()
+        yield spawn, SpawnTile()
