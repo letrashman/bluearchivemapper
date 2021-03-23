@@ -55,7 +55,7 @@ class EnemyInfo(Overlay):
             'Unarmed': 'armor_special'
         }[self.armor_type]
         asset = assets[assetname]
-        im.alpha_composite(asset, (x + (15 if offset else 32), y + 65))
+        im.alpha_composite(asset, (x + (14 if offset else 32), y + 65))
 
     def draw_label(self, im, assets, x, y):
         assetname = 'label_boss' if self.boss else 'label_enemy'
@@ -109,4 +109,4 @@ class Marker(Overlay):
             return
 
         asset = assets[assetname]
-        im.alpha_composite(asset, (x + (48 if offset else 32), y + 65))
+        im.alpha_composite(asset, (x + (49 if offset else 32), y + 65))
