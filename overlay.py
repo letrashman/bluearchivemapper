@@ -60,7 +60,7 @@ class EnemyInfo(Overlay):
     def draw_label(self, im, assets, x, y):
         assetname = 'label_boss' if self.boss else 'label_enemy'
         asset = assets[assetname]
-        im.paste(asset, (x + 16, y + (36 if self.boss and self.ai == 'None' else 41)), asset)
+        im.paste(asset, (x + 16, y + (37 if self.boss and self.ai == 'None' else 41)), asset)
 
     def draw_ai(self, im, assets, x, y):
         try:
