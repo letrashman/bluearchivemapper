@@ -1,5 +1,8 @@
 class Tile:
     def __init__(self, assetname, overlay=None):
+        if overlay is None:
+            overlay = []
+
         self.assetname = assetname
         self.overlay = overlay
 
@@ -8,8 +11,11 @@ class Tile:
         im.paste(asset, (x, y), asset)
 
     def draw_overlay(self, im, assets, x, y):
-        if self.overlay:
-            self.overlay.draw(im, assets, x, y)
+        for overlay in self.overlay:
+            if not overlay:
+                continue
+
+            overlay.draw(im, assets, x, y)
 
 
 class HideTile(Tile):
