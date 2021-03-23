@@ -11,11 +11,9 @@ class Tile:
         im.paste(asset, (x, y), asset)
 
     def draw_overlay(self, im, assets, x, y):
-        for overlay in self.overlay:
-            if not overlay:
-                continue
-
-            overlay.draw(im, assets, x, y)
+        drawable = [overlay for overlay in self.overlay if overlay]
+        for overlay in drawable:
+            overlay.draw(im, assets, x, y, len(drawable) == 2)
 
 
 class HideTile(Tile):

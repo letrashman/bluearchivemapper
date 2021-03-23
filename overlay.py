@@ -1,6 +1,26 @@
 class Overlay:
-    def draw(self, im, assets, x, y):
+    def draw(self, im, assets, x, y, offset):
         raise NotImplementedError
+
+
+class BonusInfo(Overlay):
+    def __init__(self, bonus):
+        self.bonus = bonus
+
+    def draw(self, im, assets, x, y, offset):
+        try:
+            assetname = {
+                'SightObject_On_01_Mesh': 'bonus_sight',
+                'HealObject_01_Mesh': 'bonus_heal',
+                'BuffAttackObject_01_Mesh': 'bonus_attack',
+                'BuffDefenseObject_01_Mesh': 'bonus_armor',
+                'RewardObject_OneTime_01_Mesh': 'bonus_pyrox'
+            }[self.bonus]
+        except KeyError:
+            return
+
+        asset = assets[assetname]
+        im.paste(asset, (x + (16 if offset else 32), y + 65), asset)
 
 
 class EnemyInfo(Overlay):
@@ -11,12 +31,12 @@ class EnemyInfo(Overlay):
         self.armor_type = armor_type
         self.boss = boss
 
-    def draw(self, im, assets, x, y):
+    def draw(self, im, assets, x, y, offset):
         self.draw_label(im, assets, x, y)
         self.draw_ai(im, assets, x, y)
         self.draw_grade(im, assets, x, y)
         self.draw_attack_type(im, assets, x, y)
-        self.draw_armor_type(im, assets, x, y)
+        self.draw_armor_type(im, assets, x, y, offset)
 
     def draw_attack_type(self, im, assets, x, y):
         assetname = {
@@ -28,14 +48,14 @@ class EnemyInfo(Overlay):
         asset = assets[assetname]
         im.paste(asset, (x + 32, y), asset)
 
-    def draw_armor_type(self, im, assets, x, y):
+    def draw_armor_type(self, im, assets, x, y, offset):
         assetname = {
             'LightArmor': 'armor_light',
             'HeavyArmor': 'armor_heavy',
             'Unarmed': 'armor_special'
         }[self.armor_type]
         asset = assets[assetname]
-        im.paste(asset, (x + 32, y + 65), asset)
+        im.paste(asset, (x + (16 if offset else 32), y + 65), asset)
 
     def draw_label(self, im, assets, x, y):
         assetname = 'label_boss' if self.boss else 'label_enemy'
@@ -69,19 +89,24 @@ class EnemyInfo(Overlay):
 
 
 class Marker(Overlay):
-    def __init__(self, number, offset=False):
+    def __init__(self, number):
         self.number = number
-        self.offset = offset
 
-    def draw(self, im, assets, x, y):
+    def draw(self, im, assets, x, y, offset):
         try:
             assetname = [
                 'marker_1',
                 'marker_2',
-                'marker_3'
+                'marker_3',
+                'marker_4',
+                'marker_5',
+                'marker_6',
+                'marker_7',
+                'marker_8',
+                'marker_9'
             ][self.number - 1]
         except KeyError:
             return
 
         asset = assets[assetname]
-        im.paste(asset, (x + (57 if self.offset else 32), y + 65), asset)
+        im.paste(asset, (x + (48 if offset else 32), y + 65), asset)
