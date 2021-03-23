@@ -8,7 +8,7 @@ class Tile:
 
     def draw(self, im, assets, x, y):
         asset = assets[self.assetname]
-        im.paste(asset, (x, y), asset)
+        im.alpha_composite(asset, (x, y))
 
     def draw_overlay(self, im, assets, x, y):
         drawable = [overlay for overlay in self.overlay if overlay]

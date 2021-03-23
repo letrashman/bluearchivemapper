@@ -20,7 +20,7 @@ class BonusInfo(Overlay):
             return
 
         asset = assets[assetname]
-        im.paste(asset, (x + (16 if offset else 32), y + 65), asset)
+        im.alpha_composite(asset, (x + (16 if offset else 32), y + 65))
 
 
 class EnemyInfo(Overlay):
@@ -46,7 +46,7 @@ class EnemyInfo(Overlay):
             'Mystic': 'attack_mystic'
         }[self.attack_type]
         asset = assets[assetname]
-        im.paste(asset, (x + 32, y), asset)
+        im.alpha_composite(asset, (x + 32, y))
 
     def draw_armor_type(self, im, assets, x, y, offset):
         assetname = {
@@ -55,12 +55,12 @@ class EnemyInfo(Overlay):
             'Unarmed': 'armor_special'
         }[self.armor_type]
         asset = assets[assetname]
-        im.paste(asset, (x + (16 if offset else 32), y + 65), asset)
+        im.alpha_composite(asset, (x + (16 if offset else 32), y + 65))
 
     def draw_label(self, im, assets, x, y):
         assetname = 'label_boss' if self.boss else 'label_enemy'
         asset = assets[assetname]
-        im.paste(asset, (x + 16, y + (37 if self.boss and self.ai == 'None' else 41)), asset)
+        im.alpha_composite(asset, (x + 16, y + (37 if self.boss and self.ai == 'None' else 41)))
 
     def draw_ai(self, im, assets, x, y):
         try:
@@ -72,7 +72,7 @@ class EnemyInfo(Overlay):
             return
 
         asset = assets[assetname]
-        im.paste(asset, (x + 22, y + 35), asset)
+        im.alpha_composite(asset, (x + 22, y + 35))
 
     def draw_grade(self, im, assets, x, y):
         try:
@@ -85,7 +85,7 @@ class EnemyInfo(Overlay):
             return
 
         asset = assets[assetname]
-        im.paste(asset, (x + 40, y + 35), asset)
+        im.alpha_composite(asset, (x + 40, y + 35))
 
 
 class Marker(Overlay):
@@ -109,4 +109,4 @@ class Marker(Overlay):
             return
 
         asset = assets[assetname]
-        im.paste(asset, (x + (48 if offset else 32), y + 65), asset)
+        im.alpha_composite(asset, (x + (48 if offset else 32), y + 65))
