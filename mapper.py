@@ -41,8 +41,12 @@ def map_campaign_stage(mapdir, outdir, campaign_stage, data, assets):
         print(f'Campaign stage {campaign_stage["Name"]} has no StrategyMap')
         return
 
-    with pathlib.Path(mapdir, strategy_map + '.json').open() as f:
-        map = json.load(f)
+    try:
+        with pathlib.Path(mapdir, strategy_map + '.json').open() as f:
+            map = json.load(f)
+    except FileNotFoundError:
+        print(f'HexaMap for campaign stage {campaign_stage["Name"]} does not exist')
+        return
 
     tilemap = create_tilemap(map, data)
     im = render_tilemap(tilemap, assets)
