@@ -1,0 +1,26 @@
+{% raw %}{{{% endraw %}Mission
+| Name = {{ mission.name }}
+| Cost = {{ mission.cost }} AP
+| Difficulty = {{ mission.difficulty }}
+| Environment = {{ mission.environment }}
+| RecLevel = {{ mission.reclevel }}
+{% raw %}}}{% endraw %}
+
+=Map=
+{% raw %}{{{% endraw %}MissionMap
+| Filename = {{ mission.filename }}
+{% raw %}}}{% endraw %}
+
+=Drops=
+{% raw %}{{{% endraw %}MissionRewards
+{% for reward in mission.rewards['FirstClear'] | sort -%}
+| FirstClear{{ loop.index }} = {{ reward.icon | formaticon }}
+{% endfor -%}
+{% for reward in mission.rewards['Default'] | sort -%}
+| Main{{ loop.index }} = {{ reward.icon | formaticon }}
+{% endfor -%}
+{% for reward in mission.rewards['Other'] | sort -%}
+| Other{{ loop.index }} = {{ reward.icon | formaticon }}
+{% endfor -%}
+{% raw %}}}{% endraw %}
+[[Category:Missions]]
