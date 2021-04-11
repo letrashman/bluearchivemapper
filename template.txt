@@ -13,13 +13,13 @@
 
 =Drops=
 {% raw %}{{{% endraw %}MissionRewards
-{% for reward in mission.rewards['FirstClear'] | sort -%}
+{% for reward in mission.rewards.get('FirstClear', []) | sort -%}
 | FirstClear{{ loop.index }} = {{ reward.icon | formaticon }}
 {% endfor -%}
-{% for reward in mission.rewards['Default'] | sort -%}
+{% for reward in (mission.rewards.get('Default', []) + mission.rewards.get('Rare', [])) | sort -%}
 | Main{{ loop.index }} = {{ reward.icon | formaticon }}
 {% endfor -%}
-{% for reward in mission.rewards['Other'] | sort -%}
+{% for reward in mission.rewards.get('Other', []) | sort -%}
 | Other{{ loop.index }} = {{ reward.icon | formaticon }}
 {% endfor -%}
 {% raw %}}}{% endraw %}

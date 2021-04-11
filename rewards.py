@@ -1,19 +1,19 @@
 import collections
 
-Reward = collections.namedtuple('Reward', 'icon,tag')
+Reward = collections.namedtuple('Reward', 'icon,tag,prob')
 
 
 def get_currency_rewards(reward, data):
-    yield Reward(data.currencies[reward['StageRewardId']]['Icon'], reward['RewardTag'])
+    yield Reward(data.currencies[reward['StageRewardId']]['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100)
 
 
 def get_equipment_rewards(reward, data):
-    yield Reward(data.equipment[reward['StageRewardId']]['Icon'], reward['RewardTag'])
+    yield Reward(data.equipment[reward['StageRewardId']]['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100)
 
 
 def get_gacha_rewards(reward, data):
     for icon in _get_gacha_rewards(reward['StageRewardId'], data):
-        yield Reward(icon, 'Other')
+        yield Reward(icon, 'Other', None)
 
 
 def _get_gacha_rewards(group_id, data):
@@ -37,7 +37,7 @@ def _get_gacha_rewards_recursive(group_id, data):
 
 
 def get_item_rewards(reward, data):
-    yield Reward(data.items[reward['StageRewardId']]['Icon'], reward['RewardTag'])
+    yield Reward(data.items[reward['StageRewardId']]['Icon'], reward['RewardTag'], reward['StageRewardProb'] / 100)
 
 
 def get_rewards(campaign_stage, data):

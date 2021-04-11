@@ -38,7 +38,6 @@ def make_mission_pages(datadir, username, password):
 
         name = f'{m.group("chapter")}-{m.group("stage")}{"H" if m.group("difficulty") == "Hard" else ""}'
         rewards = get_rewards(campaign_stage, data)
-        print(rewards)
         mission = Mission(
             name,
             campaign_stage['StageEnterCostAmount'],
