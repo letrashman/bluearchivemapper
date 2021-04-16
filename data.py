@@ -27,7 +27,9 @@ def load_campaign_units(path):
 
 def load_characters(path):
     # TODO: find something better to use as the key
-    return load_file(os.path.join(path, 'Excel', 'CharacterExcelTable.json'), key='ModelPrefabName')
+    return load_file(os.path.join(path, 'Excel', 'CharacterExcelTable.json'),
+                     key='ModelPrefabName',
+                     pred=lambda item: item['ProductionStep'] == 'Release')
 
 
 def load_currencies(path):
@@ -54,11 +56,11 @@ def load_equipment(path):
     return load_file(os.path.join(path, 'Excel', 'EquipmentExcelTable.json'))
 
 
-def load_file(file, key='Id'):
+def load_file(file, key='Id', pred=None):
     with open(file) as f:
         data = json.load(f)
 
-    return {item[key]: item for item in data['DataList']}
+    return {item[key]: item for item in data['DataList'] if not pred or pred(item)}
 
 
 def load_file_grouped(file, key):
