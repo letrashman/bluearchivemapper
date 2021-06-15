@@ -35,29 +35,32 @@ def render_tilemap(tilemap, assets):
     return im
 
 
-def map_campaign_stage(mapdir, outdir, campaign_stage, data, assets):
+def map_campaign_stage(mapdir, fp, campaign_stage, data, assets):
     strategy_map = campaign_stage['StrategyMap']
     if strategy_map is None:
-        print(f'Campaign stage {campaign_stage["Name"]} has no StrategyMap')
-        return
+        raise ValueError(f'Campaign stage {campaign_stage["Name"]} has no StrategyMap')
 
     try:
-        with pathlib.Path(mapdir, strategy_map + '.json').open() as f:
-            map = json.load(f)
+        map = json.loads(pathlib.Path(mapdir, f'{strategy_map.lower()}.json').read_bytes())
     except FileNotFoundError:
-        print(f'HexaMap for campaign stage {campaign_stage["Name"]} does not exist')
-        return
+        raise ValueError(f'HexaMap for campaign stage {campaign_stage["Name"]} does not exist')
 
     tilemap = create_tilemap(map, data)
     im = render_tilemap(tilemap, assets)
-    im.save(pathlib.Path(outdir, campaign_stage['Name'] + '.png'))
+    im = im.crop(im.getbbox())
+    im.save(fp, format='PNG')
 
 
 def mapper(datadir, mapdir, outdir):
     data = load_data(datadir)
     assets = load_assets()
     for campaign_stage in data.campaign_stages.values():
-        map_campaign_stage(mapdir, outdir, campaign_stage, data, assets)
+        outfile = pathlib.Path(outdir, campaign_stage['Name'] + '.png')
+        try:
+            map_campaign_stage(mapdir, outfile, campaign_stage, data, assets)
+        except ValueError as err:
+            print(err)
+            continue
 
 
 def main():
