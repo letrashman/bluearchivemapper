@@ -66,6 +66,26 @@ class StartTile(Tile):
         super().__init__('tile_start', overlay=overlay)
 
 
+class SwitchDownTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_switch_down', overlay=overlay)
+
+
+class SwitchUpTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_switch_up', overlay=overlay)
+
+
+class ToggleDownTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_toggle_down', overlay=overlay)
+
+
+class ToggleUpTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_toggle_up', overlay=overlay)
+
+
 class TileMap:
     def __init__(self):
         self._tiles = {}

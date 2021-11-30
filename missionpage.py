@@ -1,6 +1,6 @@
 import collections
 import io
-import os
+import pathlib
 import re
 import sys
 
@@ -49,7 +49,7 @@ def parse_campaign_stage_name(name):
 
 
 def render_mission_page(name, campaign_stage, data):
-    env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
+    env = Environment(loader=FileSystemLoader(pathlib.Path(__file__).parent))
     env.filters['formaticon'] = formaticon
     template = env.get_template('template.txt')
     mission = Mission(
