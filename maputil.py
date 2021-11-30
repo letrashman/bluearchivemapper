@@ -1,6 +1,6 @@
-from overlay import EnemyInfo, Marker, BonusInfo
-from tilemap import NormalTile, StartTile, PortalTile, PortalEntranceTile, PortalExitTile, HideTriggerTile, HideTile, \
-    SpawnTriggerTile, SpawnTile
+from overlay import BonusInfo, EnemyInfo, Marker
+from tilemap import BrokenTile, HideTile, HideTriggerTile, NormalTile, PortalEntranceTile, PortalExitTile, PortalTile, \
+    SpawnTile, SpawnTriggerTile, StartTile
 
 
 def get_strategies(map, data):
@@ -134,9 +134,13 @@ def get_tiles(map, data):
         yield exit, PortalTile(overlay=[Marker(number)])
 
     for trigger, hide in get_hide_tiles(map):
-        number += 1
-        yield trigger, HideTriggerTile(overlay=[Marker(number)])
-        yield hide, HideTile(overlay=[Marker(number), bonus_infos.get(hide) or enemy_infos.get(hide)])
+        if trigger == hide:
+            # It's a broken tile
+            yield trigger, BrokenTile(overlay=[bonus_infos.get(trigger) or enemy_infos.get(trigger)])
+        else:
+            number += 1
+            yield trigger, HideTriggerTile(overlay=[Marker(number)])
+            yield hide, HideTile(overlay=[Marker(number), bonus_infos.get(hide) or enemy_infos.get(hide)])
 
     for trigger, spawn in get_spawn_tiles(map):
         number += 1

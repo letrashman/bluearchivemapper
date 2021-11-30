@@ -16,6 +16,11 @@ class Tile:
             overlay.draw(im, assets, x, y, len(drawable) == 2)
 
 
+class BrokenTile(Tile):
+    def __init__(self, overlay=None):
+        super().__init__('tile_broken', overlay=overlay)
+
+
 class HideTile(Tile):
     def __init__(self, overlay=None):
         super().__init__('tile_hide', overlay=overlay)
