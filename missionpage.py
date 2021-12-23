@@ -7,7 +7,7 @@ import sys
 from jinja2 import Environment, FileSystemLoader
 from pywikiapi import Site
 
-from data import load_data
+from data import load_data, load_translations
 from mapper import load_assets, map_campaign_stage
 from rewards import get_rewards
 
@@ -15,7 +15,14 @@ URL = 'https://bluearchive.miraheze.org/w/api.php'
 
 CAMPAIGN_STAGE_NAME_PATTERN = r'^CHAPTER0*(?P<chapter>\d+)_(?P<difficulty>Hard|Normal)_Main_Stage0*(?P<stage>\d+)$'
 
-Mission = collections.namedtuple('Mission', 'name,cost,difficulty,environment,reclevel,filename,rewards')
+BLOCK_START_STRING = "[%"
+BLOCK_END_STRING = "%]"
+VARIABLE_START_STRING = "[["
+VARIABLE_END_STRING = "]]"
+COMMENT_START_STRING = "[#"
+COMMENT_END_STRING = "#]"
+
+Mission = collections.namedtuple('Mission', 'name,cost,difficulty,environment,reclevel,filename,rewards,strategy')
 
 
 def formaticon(value):
@@ -48,8 +55,16 @@ def parse_campaign_stage_name(name):
     return int(m.group('chapter')), int(m.group('stage')), m.group('difficulty')
 
 
-def render_mission_page(name, campaign_stage, data):
-    env = Environment(loader=FileSystemLoader(pathlib.Path(__file__).parent))
+def render_mission_page(name, campaign_stage, data, tls):
+    env = Environment(
+        loader=FileSystemLoader(pathlib.Path(__file__).parent),
+        block_start_string=BLOCK_START_STRING,
+        block_end_string=BLOCK_END_STRING,
+        variable_start_string=VARIABLE_START_STRING,
+        variable_end_string=VARIABLE_END_STRING,
+        comment_start_string=COMMENT_START_STRING,
+        comment_end_string=COMMENT_END_STRING
+    )
     env.filters['formaticon'] = formaticon
     template = env.get_template('template.txt')
     mission = Mission(
@@ -59,13 +74,15 @@ def render_mission_page(name, campaign_stage, data):
         'City/Town' if campaign_stage['StageTopography'] == 'Street' else campaign_stage['StageTopography'],
         campaign_stage['RecommandLevel'],
         f'{campaign_stage["Name"]}.png',
-        get_rewards(campaign_stage, data)
+        get_rewards(campaign_stage, data),
+        tls.strategies[name]['Description']
     )
     return template.render(mission=mission)
 
 
-def missionpage(datadir, mapdir, username, password, name):
+def missionpage(datadir, translationdir, username, password, name):
     data = load_data(datadir)
+    tls = load_translations(translationdir)
     assets = load_assets()
     site = Site(URL)
     site.login(username, password)
@@ -73,7 +90,7 @@ def missionpage(datadir, mapdir, username, password, name):
 
     # Upload map image
     with io.BytesIO() as b:
-        map_campaign_stage(mapdir, b, campaign_stage, data, assets)
+        map_campaign_stage(datadir, b, campaign_stage, data, assets)
         b.seek(0)
         site(
             action='upload',
@@ -90,7 +107,7 @@ def missionpage(datadir, mapdir, username, password, name):
         )
 
     # Upload mission page
-    text = render_mission_page(name, campaign_stage, data)
+    text = render_mission_page(name, campaign_stage, data, tls)
     site(
         action='edit',
         title=f'Missions/{name}',
@@ -104,7 +121,7 @@ def main():
     try:
         missionpage(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
     except IndexError:
-        print('usage: missionpage.py <datadir> <mapdir> <username> <password> <name>')
+        print('usage: missionpage.py <datadir> <translationdir> <username> <password> <name>')
 
 
 if __name__ == '__main__':

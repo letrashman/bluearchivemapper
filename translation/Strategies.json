@@ -1,0 +1,516 @@
+{
+  "DataList": [
+    {
+      "Name": "1-1",
+      "Description": null
+    },
+    {
+      "Name": "1-2",
+      "Description": null
+    },
+    {
+      "Name": "1-3",
+      "Description": null
+    },
+    {
+      "Name": "1-4",
+      "Description": null
+    },
+    {
+      "Name": "1-5",
+      "Description": null
+    },
+    {
+      "Name": "1-1H",
+      "Description": null
+    },
+    {
+      "Name": "1-2H",
+      "Description": null
+    },
+    {
+      "Name": "1-3H",
+      "Description": null
+    },
+    {
+      "Name": "2-1",
+      "Description": null
+    },
+    {
+      "Name": "2-2",
+      "Description": null
+    },
+    {
+      "Name": "2-3",
+      "Description": null
+    },
+    {
+      "Name": "2-4",
+      "Description": null
+    },
+    {
+      "Name": "2-5",
+      "Description": null
+    },
+    {
+      "Name": "2-1H",
+      "Description": null
+    },
+    {
+      "Name": "2-2H",
+      "Description": null
+    },
+    {
+      "Name": "2-3H",
+      "Description": null
+    },
+    {
+      "Name": "3-1",
+      "Description": null
+    },
+    {
+      "Name": "3-2",
+      "Description": null
+    },
+    {
+      "Name": "3-3",
+      "Description": null
+    },
+    {
+      "Name": "3-4",
+      "Description": null
+    },
+    {
+      "Name": "3-5",
+      "Description": null
+    },
+    {
+      "Name": "3-1H",
+      "Description": null
+    },
+    {
+      "Name": "3-2H",
+      "Description": null
+    },
+    {
+      "Name": "3-3H",
+      "Description": null
+    },
+    {
+      "Name": "4-1",
+      "Description": null
+    },
+    {
+      "Name": "4-2",
+      "Description": null
+    },
+    {
+      "Name": "4-3",
+      "Description": null
+    },
+    {
+      "Name": "4-4",
+      "Description": null
+    },
+    {
+      "Name": "4-5",
+      "Description": null
+    },
+    {
+      "Name": "4-1H",
+      "Description": null
+    },
+    {
+      "Name": "4-2H",
+      "Description": null
+    },
+    {
+      "Name": "4-3H",
+      "Description": null
+    },
+    {
+      "Name": "5-1",
+      "Description": null
+    },
+    {
+      "Name": "5-2",
+      "Description": null
+    },
+    {
+      "Name": "5-3",
+      "Description": null
+    },
+    {
+      "Name": "5-4",
+      "Description": null
+    },
+    {
+      "Name": "5-5",
+      "Description": null
+    },
+    {
+      "Name": "5-1H",
+      "Description": null
+    },
+    {
+      "Name": "5-2H",
+      "Description": null
+    },
+    {
+      "Name": "5-3H",
+      "Description": null
+    },
+    {
+      "Name": "6-1",
+      "Description": null
+    },
+    {
+      "Name": "6-2",
+      "Description": null
+    },
+    {
+      "Name": "6-3",
+      "Description": null
+    },
+    {
+      "Name": "6-4",
+      "Description": null
+    },
+    {
+      "Name": "6-5",
+      "Description": null
+    },
+    {
+      "Name": "6-1H",
+      "Description": null
+    },
+    {
+      "Name": "6-2H",
+      "Description": null
+    },
+    {
+      "Name": "6-3H",
+      "Description": null
+    },
+    {
+      "Name": "7-1",
+      "Description": null
+    },
+    {
+      "Name": "7-2",
+      "Description": null
+    },
+    {
+      "Name": "7-3",
+      "Description": null
+    },
+    {
+      "Name": "7-4",
+      "Description": null
+    },
+    {
+      "Name": "7-5",
+      "Description": null
+    },
+    {
+      "Name": "7-1H",
+      "Description": null
+    },
+    {
+      "Name": "7-2H",
+      "Description": null
+    },
+    {
+      "Name": "7-3H",
+      "Description": null
+    },
+    {
+      "Name": "8-1",
+      "Description": null
+    },
+    {
+      "Name": "8-2",
+      "Description": null
+    },
+    {
+      "Name": "8-3",
+      "Description": null
+    },
+    {
+      "Name": "8-4",
+      "Description": null
+    },
+    {
+      "Name": "8-5",
+      "Description": null
+    },
+    {
+      "Name": "8-1H",
+      "Description": "Bossing team top, clearing team bottom.\n\nUse teleporter with both of your teams\n\nActivate (3) with clearing team and move to the right with your bossing team\n\nUse the teleporter again with your clearing team and move one spot below using your bossing team\n\nUse your clearing team to move in front of the boss, swap places with your bossing team then kill it for a 4-turn clear."
+    },
+    {
+      "Name": "8-2H",
+      "Description": "Bossing team to the right, clearing team to the left\n\nAttack the enemies below with both teams\n\nClearing team to the right, activating (3) while bossing team moves left\n\nActivate (4) with your clearing team then move your bossing team to the path that just opened\n\nUse the teleporter with your bossing team and kill the boss. You can use your clearing team to move to (2) and teleport in front of the present box too if you want to collect it."
+    },
+    {
+      "Name": "8-3H",
+      "Description": "Bossing team to the left, clearing team to the right\n\nMove your teams on top of the teleporter but don't use it\n\nUse your clearing team to activate the path on (3) then use the teleporter with your bossing team, swap places and attack the tank above.\n\nActivate the other path at (2) with your clearing team then move to the now opened path with your bossing team\n\nAttack the enemies with both of your teams on this turn. The boss will attack you for a 4-turn clear."
+    },
+    {
+      "Name": "9-1",
+      "Description": null
+    },
+    {
+      "Name": "9-2",
+      "Description": null
+    },
+    {
+      "Name": "9-3",
+      "Description": null
+    },
+    {
+      "Name": "9-4",
+      "Description": null
+    },
+    {
+      "Name": "9-5",
+      "Description": null
+    },
+    {
+      "Name": "9-1H",
+      "Description": "Bossing team top, clearing team bottom\n\nAttack the enemies with both of your teams\n\nAttack the enemy above your clearing team, swap places with your bossing team and move to (1)\n\nKill the boss on your next turn for a 3-turn clear"
+    },
+    {
+      "Name": "9-2H",
+      "Description": "Bossing team top, clearing team bottom\n\nAttack the enemy below your bossing team and move your clearing team up\n\nUse your clearing team to attack the enemy above then move your bossing team right to (2)\n\nUse your clearing team to attack the enemy to the right  then attack the enemy above your bossing team\n\nMove your clearing team to (1), swap places with your bossing team and attack the boss for a 4-turn clear"
+    },
+    {
+      "Name": "9-3H",
+      "Description": "Bossing team Bottom, Clearing team top.\n\nAttack the enemy below your clearing team then swap places with your bossing team and use that team to attack the enemy now to your left.\n\nUse your clearing team to attack the enemy next to it and move your bossing team one spot down\n\nUse your clearing team to grab the giftbox above it then move your bossing team one spot left to (1). The boss will attack you for a 3-turn clear."
+    },
+    {
+      "Name": "10-1",
+      "Description": null
+    },
+    {
+      "Name": "10-2",
+      "Description": null
+    },
+    {
+      "Name": "10-3",
+      "Description": null
+    },
+    {
+      "Name": "10-4",
+      "Description": null
+    },
+    {
+      "Name": "10-5",
+      "Description": null
+    },
+    {
+      "Name": "10-1H",
+      "Description": "Bossing team to the right, Clearing team to the left\n\nAttack the enemy below you using your clearing team and then defeat the enemy next to your bossing team\n\nMove your clearing team to (2) and your bossing team to (1)\n\nAttack the enemy below you using your bossing team then make your way to the boss for a 5-turn clear. Grabbing the present box below the boss will make it a 6-turn clear."
+    },
+    {
+      "Name": "10-2H",
+      "Description": "Bossing team left, Clearing team right\n\nAttack the enemy below you using your clearing team then swap places with your bossing team then defeat the enemy below\n\nMove your clearing team left to (3) and move your bossing team to the path that has opened to your right\n\nMove your clearing team to (2) then Move your bossing team right again in front of the boss \n\nAttack the enemy below you using your clearing team and move your bossing team to kill the boss  for a 4-turn clear"
+    },
+    {
+      "Name": "10-3H",
+      "Description": "Bossing team right, Clearing team left\n\nAttack the enemy above your clearing team and move your bossing team left\n\nMove your clearing team to (2), swap spots with your bossing team and advance to (4) above you\n\nAttack the enemy above your bossing team and move your clearing team right\n\nMove your clearing team to (3) then move your bossing team to the new square that has appeared to the left (Grabbing the present box here will add +1 turns to the clear)\n\nKill the boss using your bossing team for a 5-turn clear"
+    },
+    {
+      "Name": "11-1",
+      "Description": null
+    },
+    {
+      "Name": "11-2",
+      "Description": null
+    },
+    {
+      "Name": "11-3",
+      "Description": null
+    },
+    {
+      "Name": "11-4",
+      "Description": null
+    },
+    {
+      "Name": "11-5",
+      "Description": null
+    },
+    {
+      "Name": "11-1H",
+      "Description": "Bossing team left, Clearing team right\n\nAttack enemy to the left with your bossing team and move your clearing team left to where your bossing team was\n\nSwap places with your bossing team and attack the enemy above with your clearing team. Move your bossing team left.\n\nMove both teams one spot up\n\nGrab the present box with your clearing team and kill the boss for a 4-turn clear"
+    },
+    {
+      "Name": "11-2H",
+      "Description": "Bossing team left, Clearing team right\n\nMove both teams one spot up and don't use the teleporter\n\nAttack the enemy above with your bossing team and move your clearing team up\n\nMove your bossing team right and then move your clearing team to the spot right below it\n\nAttack the enemy to the right using your Clearing team and then move your bossing team to where your clearing team was before\n\nTrade places with your bossing team and attack the enemy above then kill the boss for a 5-turn clear"
+    },
+    {
+      "Name": "11-3H",
+      "Description": "Bossing team left, Clearing team right\n\nMove clearing team down and end turn\n\nUse the teleporter above you with your bossing team and move your clearing team to the right. Don't use the teleporter with your clearing team.\n\nMove your bossing team right and attack the enemy above you with your clearing team\n\nKill the boss for a 4-turn clear"
+    },
+    {
+      "Name": "12-1",
+      "Description": null
+    },
+    {
+      "Name": "12-2",
+      "Description": null
+    },
+    {
+      "Name": "12-3",
+      "Description": null
+    },
+    {
+      "Name": "12-4",
+      "Description": null
+    },
+    {
+      "Name": "12-5",
+      "Description": null
+    },
+    {
+      "Name": "12-1H",
+      "Description": "Start: Bossing team Left, Clearing team Right.\n\nTurn 1: Move your Clearing team to the Teleporter (1) and Teleport. Bossing team swaps places with Clearing team and take the giftbox.\n\nTurn 2: Take the Teleporter (1) with your Clearing team again and teleport. Bossing team moves up.\n\nTurn 3: Clearing team moves to (2). Bossing team attacks the Enemy.\n\nTurn 4: Clearing team attacks the enemy below. Boss team moves up to the (2) and waits for the boss to attack during enemy turn, granting a 4-turn clear."
+    },
+    {
+      "Name": "12-2H",
+      "Description": "Start: Bossing team Left, Clearing team Right.\n\nTurn 1: Move your Bossing team one spot down then swap places with your Clearing team and attack the enemy to your diagonal right, next to (2).\n\nTurn 2: Move your Clearing team to (2), then move your Bossing team up.\n\nTurn 3: Grab the giftbox with your Clearing team and attack the enemy above you with your Bossing team\n\nTurn 4: Attack the boss with your Bossing team for a 4-turn clear. If your Clearing team gets wiped by the mystic enemy then, that won't affect your 3-star rating so don't worry about withdrawing when attacked by it."
+    },
+    {
+      "Name": "12-3H",
+      "Description": "Clearing team on top, Bossing team on bottom\n\nAttack the enemy in sight with your Clearing team then swap places with your Bossing team and use the teleporter\n\nGrab the giftbox then move to (4) with your Bossing team\n\nMove bossing team to (1) and move your Clearing team one spot down\n\nUse the teleporter with your Bossing team and move your Clearing team one spot to the left\n\nMove your Clearing team one spot below to (3) and attack the enemy to your left with your Bossing team\n\nAttack the enemy to your right with your Clearing team and kill the boss with your Bossing team for a 6-turn clear"
+    },
+    {
+      "Name": "13-1",
+      "Description": null
+    },
+    {
+      "Name": "13-2",
+      "Description": null
+    },
+    {
+      "Name": "13-3",
+      "Description": null
+    },
+    {
+      "Name": "13-4",
+      "Description": null
+    },
+    {
+      "Name": "13-5",
+      "Description": null
+    },
+    {
+      "Name": "13-1H",
+      "Description": "Bossing Team on top, Clearing Team on bottom\n\nMove Clearing Team to the left and Bossing Team to (1)\n\nMove Clearing Team to (2) and swap places with Bossing Team then attack the enemy directly below you\n\nMove Clearing Team to the right and Bossing Team to the left\n\nGrab the giftbox and then Kill the boss for a 4-turn clear"
+    },
+    {
+      "Name": "13-2H",
+      "Description": "Bossing team on top, Clearing team on the right\n\nMove Bossing Team to (1) and Clearing team to (2) respectively\n\nMove Clearing team left then swap positions with Bossing Team and attack the enemy directly to your left\n\nAttack the enemy to the right of Clearing team then kill the boss for a 3-turn clear"
+    },
+    {
+      "Name": "13-3H",
+      "Description": "Clearing team to the left, Bossing to the right\n\nAttack the middle enemy with your clearing team and move the bossing team to (1) on the map then swap with clearing team and advance to (2) with your bossing team\n\nAttack the tank below using the clearing team and move bossing team towards the boss\n\nGrab the present box using your clearing team and attack the boss for a 4-turn clear"
+    },
+    {
+      "Name": "14-1",
+      "Description": null
+    },
+    {
+      "Name": "14-2",
+      "Description": null
+    },
+    {
+      "Name": "14-3",
+      "Description": null
+    },
+    {
+      "Name": "14-4",
+      "Description": null
+    },
+    {
+      "Name": "14-5",
+      "Description": null
+    },
+    {
+      "Name": "14-1H",
+      "Description": null
+    },
+    {
+      "Name": "14-2H",
+      "Description": null
+    },
+    {
+      "Name": "14-3H",
+      "Description": null
+    },
+    {
+      "Name": "15-1",
+      "Description": null
+    },
+    {
+      "Name": "15-2",
+      "Description": null
+    },
+    {
+      "Name": "15-3",
+      "Description": null
+    },
+    {
+      "Name": "15-4",
+      "Description": null
+    },
+    {
+      "Name": "15-5",
+      "Description": null
+    },
+    {
+      "Name": "15-1H",
+      "Description": null
+    },
+    {
+      "Name": "15-2H",
+      "Description": null
+    },
+    {
+      "Name": "15-3H",
+      "Description": null
+    },
+    {
+      "Name": "16-1",
+      "Description": null
+    },
+    {
+      "Name": "16-2",
+      "Description": null
+    },
+    {
+      "Name": "16-3",
+      "Description": null
+    },
+    {
+      "Name": "16-4",
+      "Description": null
+    },
+    {
+      "Name": "16-5",
+      "Description": null
+    },
+    {
+      "Name": "16-1H",
+      "Description": null
+    },
+    {
+      "Name": "16-2H",
+      "Description": null
+    },
+    {
+      "Name": "16-3H",
+      "Description": null
+    }
+  ]
+}

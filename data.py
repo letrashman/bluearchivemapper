@@ -8,6 +8,10 @@ BlueArchiveData = collections.namedtuple(
      'currencies', 'equipment', 'event_content_stages', 'gacha_elements', 'gacha_elements_recursive', 'gacha_groups',
      'items']
 )
+BlueArchiveTranslations = collections.namedtuple(
+    'BlueArchiveTranslations',
+    ['strategies']
+)
 
 
 def load_campaign_stages(path):
@@ -94,3 +98,17 @@ def load_gacha_groups(path):
 
 def load_items(path):
     return load_file(path / 'Excel' / 'ItemExcelTable.json')
+
+
+def load_strategies_translations(path):
+    return load_file(path / 'Strategies.json', key='Name')
+
+
+def load_translations(path):
+    return _load_translations(pathlib.Path(path))
+
+
+def _load_translations(path):
+    return BlueArchiveTranslations(
+        strategies=load_strategies_translations(path)
+    )
