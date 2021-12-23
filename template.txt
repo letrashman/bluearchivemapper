@@ -1,26 +1,31 @@
-{% raw %}{{{% endraw %}Mission
-| Name = {{ mission.name }}
-| Cost = {{ mission.cost }} AP
-| Difficulty = {{ mission.difficulty }}
-| Environment = {{ mission.environment }}
-| RecLevel = {{ mission.reclevel }}
-{% raw %}}}{% endraw %}
+{{Mission
+| Name = [[ mission.name ]]
+| Cost = [[ mission.cost ]] AP
+| Difficulty = [[ mission.difficulty ]]
+| Environment = [[ mission.environment ]]
+| RecLevel = [[ mission.reclevel ]]
+}}
 
 =Map=
-{% raw %}{{{% endraw %}MissionMap
-| Filename = {{ mission.filename }}
-{% raw %}}}{% endraw %}
+{{MissionMap
+| Filename = [[ mission.filename ]]
+}}
 
 =Drops=
-{% raw %}{{{% endraw %}MissionRewards
-{% for reward in mission.rewards.get('FirstClear', []) | sort -%}
-| FirstClear{{ loop.index }} = {{ reward.icon | formaticon }}
-{% endfor -%}
-{% for reward in (mission.rewards.get('Default', []) + mission.rewards.get('Rare', [])) | sort -%}
-| Main{{ loop.index }} = {{ reward.icon | formaticon }}
-{% endfor -%}
-{% for reward in mission.rewards.get('Other', []) | sort -%}
-| Other{{ loop.index }} = {{ reward.icon | formaticon }}
-{% endfor -%}
-{% raw %}}}{% endraw %}
-[[Category:Missions]]
+{{MissionRewards
+[% for reward in mission.rewards.get('FirstClear', []) -%]
+| FirstClear[[ loop.index ]] = [[ reward.icon | formaticon ]]
+[% endfor -%]
+[% for reward in (mission.rewards.get('Default', []) + mission.rewards.get('Rare', [])) -%]
+| Main[[ loop.index ]] = [[ reward.icon | formaticon ]]
+[% if reward.prob %]| Main[[ loop.index ]]Prob = [[ reward.prob ]]%[% endif %]
+[% endfor -%]
+[% for reward in mission.rewards.get('Other', []) -%]
+| Other[[ loop.index ]] = [[ reward.icon | formaticon ]]
+[% endfor -%]
+}}
+[% if mission.strategy %]
+=Strategy=
+[[ mission.strategy ]]
+[% endif %]
+[% raw %][[Category:Missions]][% endraw %]
