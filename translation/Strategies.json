@@ -198,11 +198,11 @@
     },
     {
       "Name": "7-2",
-      "Description": null
+      "Description": "Boss-killer team left, sweep team topside (2 Turns)\n\nKill enemy infront of bk team by using sweep team, swap sweep team with bk team then move to bottom teleport tile (1)\n\nMove bk team to eat ramen, end phases"
     },
     {
       "Name": "7-3",
-      "Description": null
+      "Description": "Boss-killer team left, sweep team bottom side (2 Turns)\n\nTeleport sweep team to left side, swap sweep team with bk team, kill enemy in front\n\nMove sweep team back to right side, kill enemy alongside bk team\n\nLet the enemy do the work, end phases"
     },
     {
       "Name": "7-4",
@@ -230,11 +230,11 @@
     },
     {
       "Name": "8-2",
-      "Description": null
+      "Description": "Boss-killer team right, sweep team left (4 Turns)\n\nTeleport sweep team to left side (1), kill enemy on top of bk team\n\nClear enemy using sweep team, bk team move to right corner\n\nMove sweep team to tile(2), bk team move to right\n\nClear enemy nearby sweep team, kill boss using bk team"
     },
     {
       "Name": "8-3",
-      "Description": null
+      "Description": "Boss-killer team left, sweep team right (3 Turns)\n\nbk team kill enemy at bottom, sweep team move to right\n\nTeleport bk team to top side (1), swap sweep team with bk team, move sweep team to tile(2)\n\nkill enemy on the right side of bk team, kill enemy on the right side of sweep team, end phases"
     },
     {
       "Name": "8-4",
@@ -310,7 +310,8 @@
     },
     {
       "Name": "10-1H",
-      "Description": "Bossing team to the right, Clearing team to the left\n\nAttack the enemy below you using your clearing team and then defeat the enemy next to your bossing team\n\nMove your clearing team to (2) and your bossing team to (1)\n\nAttack the enemy below you using your bossing team then make your way to the boss for a 5-turn clear. Grabbing the present box below the boss will make it a 6-turn clear."
+      "Description": "Bossing team to the right, Clearing team to the left\n\nAttack the enemy below you using your clearing team and then defeat the enemy next to your bossing team\n\nMove your clearing team to (2) and your bossing team to (1)\n\nAttack the enemy below you using your bossing team then make your way to the boss for a 5-turn clear. Grabbing the present box below the boss will make it a 6-turn clear",
+      "Description_fromwiki": "Bossing team to the right, Clearing team to the left\n\nAttack the enemy below you using your clearing team and then defeat the enemy next to your bossing team\n\nMove your clearing team to (2) and your bossing team to (1)\n\nMove your bossing team to the path that just opened (2) and move your clearing team to (1)\n\nUsing your clearing team to kill the enemy to the right and move your bossing team to grab the gift box\n\nUse your bossing team to kill the boss for a 5-turn clear"
     },
     {
       "Name": "10-2H",
@@ -370,7 +371,7 @@
     },
     {
       "Name": "12-5",
-      "Description": null
+      "Description": "Boss-killer team on left side, sweep team on right side (5 turns)\n\nMove bk team to (2) then teleport to the right side\n\nSwap with sweep team, move to tile (1) then teleport\n\nMove sweep team to tile (4), teleport back the bk team to left side (2)\n\nTeleport back sweep team to tile (1) bottom, clear enemy in front of boss team\n\nMove sweep team to the right of tile (3), move bk team to tile/yellow (4)\n\nClear remaining enemy on the right side using sweep team, clear boss using bk team"
     },
     {
       "Name": "12-1H",
@@ -394,7 +395,7 @@
     },
     {
       "Name": "13-3",
-      "Description": null
+      "Description": "Boss-killer team on right, sweep team on left (4 turns)\n\nMove up both sweep team and bk team\n\nMove bk up, sweep team move right (sweep team will teleport to bk team start position)\n\nMove bk team to right, then clear enemy using sweep team\n\nKill boss using bk team"
     },
     {
       "Name": "13-4",
@@ -510,6 +511,38 @@
     },
     {
       "Name": "16-3H",
+      "Description": null
+    },
+    {
+      "Name": "17-1",
+      "Description": null
+    },
+    {
+      "Name": "17-2",
+      "Description": null
+    },
+    {
+      "Name": "17-3",
+      "Description": null
+    },
+    {
+      "Name": "17-4",
+      "Description": null
+    },
+    {
+      "Name": "17-5",
+      "Description": null
+    },
+    {
+      "Name": "17-1H",
+      "Description": null
+    },
+    {
+      "Name": "17-2H",
+      "Description": null
+    },
+    {
+      "Name": "17-3H",
       "Description": null
     }
   ]
